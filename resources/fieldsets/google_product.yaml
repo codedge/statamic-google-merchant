@@ -1,7 +1,7 @@
 title: 'Google Product'
 fields:
   -
-    handle: exclude_google_merchant_feed
+    handle: google_product_exclude
     field:
       display: 'Exclude from Google Merchant Feed'
       type: toggle

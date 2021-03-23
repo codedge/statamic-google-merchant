@@ -4,10 +4,8 @@ declare(strict_types=1);
 
 namespace Codedge\GoogleMerchant;
 
-use Statamic\Tags\Collection\Entries;
-use Statamic\Tags\Parameters;
-use Vitalybaev\GoogleMerchant\Feed;
-use Vitalybaev\GoogleMerchant\Product;
+
+use Codedge\GoogleMerchant\Models\Feed;
 
 final class GoogleMerchantManager
 {
@@ -17,20 +15,9 @@ final class GoogleMerchantManager
 
     public static function createFeed()
     {
-        $feed = new Feed("Test", "", "");
+        $feed = new Feed(config('app.name') . ' Feed', config('app.url'), '');
 
-        $items = (new Entries(new Parameters([
-            'from' => 'sofa_tables|wood_flies'
-        ])))->get();
+        $feed->create('sofa_tables');
 
-        ray($items);
-
-        $items->each(function ($item, $key) {
-            $product = new Product();
-
-            dd($item);
-
-            //$product->setId($ite)
-        });
     }
 }

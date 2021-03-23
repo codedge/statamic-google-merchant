@@ -12,5 +12,7 @@ return [
     'currency' => [
         'symbol' => '€',
         'iso_code' => 'EUR',
-    ]
+    ],
+
+    'schedule' => '0 1 * * *',
 ];
