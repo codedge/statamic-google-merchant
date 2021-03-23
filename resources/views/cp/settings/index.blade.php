@@ -1,5 +1,5 @@
 @extends('statamic::layout')
-@section('title', Statamic::crumb(__('gm::cp.settings.settings'), __('Google Merchant')))
+@section('title', Statamic::crumb(__('gm::cp.settings.settings'), 'Google Merchant'))
 
 @section('content')
     <header class="mb-3">

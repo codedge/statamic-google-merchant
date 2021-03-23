@@ -1,6 +1,13 @@
 title: 'Google Product'
 fields:
   -
+    handle: exclude_google_merchant_feed
+    field:
+      display: 'Exclude from Google Merchant Feed'
+      type: toggle
+      icon: toggle
+      listable: hidden
+  -
     handle: google_product_id
     field:
       input_type: text
