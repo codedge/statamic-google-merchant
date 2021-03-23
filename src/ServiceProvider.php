@@ -5,19 +5,33 @@ declare(strict_types=1);
 namespace Codedge\GoogleMerchant;
 
 use Codedge\GoogleMerchant\Console\Commands\GoogleShoppingFeed;
-
+use Codedge\GoogleMerchant\Fieldtypes\Availability;
+use Codedge\GoogleMerchant\Fieldtypes\Condition;
+use Codedge\GoogleMerchant\Fieldtypes\Price;
+use Illuminate\Support\Facades\Artisan;
 use Statamic\Facades\CP\Nav;
 use Statamic\Facades\Permission;
 use Statamic\Providers\AddonServiceProvider;
+use Statamic\Statamic;
 
 final class ServiceProvider extends AddonServiceProvider
 {
     protected $routes = [
-        'cp'  => __DIR__.'/../routes/cp.php',
+        'cp'  => __DIR__ . '/../routes/cp.php',
+    ];
+
+    protected $fieldtypes = [
+        Condition::class,
+        Availability::class,
+        Price::class,
     ];
 
     protected $commands = [
         GoogleShoppingFeed::class,
+    ];
+
+    protected $scripts = [
+        __DIR__ . '/../public/js/statamic-gm.js',
     ];
 
     protected $viewNamespace = 'gm';
@@ -26,20 +40,26 @@ final class ServiceProvider extends AddonServiceProvider
     {
         parent::boot();
 
-        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'gm');
+        $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', 'gm');
 
         $this->bootNavigation();
         $this->bootPermissions();
+        $this->publish();
 
-        if ( $this->app->runningInConsole() ) {
-            $this->publishes( [
-                __DIR__ . '/../config/config.php' => config_path( 'google-merchant.php' ),
-            ], 'config' );
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__ . '/../config/config.php' => config_path('google-merchant.php'),
+            ], 'gm-config');
 
             //Publish views
             $this->publishes([
-                __DIR__.'/../resources/views' => resource_path('views/vendor/statamic-google-merchant/views'),
-            ], 'views');
+                __DIR__ . '/../resources/views' => resource_path('views/vendor/statamic-google-merchant/views'),
+            ], 'gm-views');
+
+            //Publish fieldsets
+            $this->publishes([
+                __DIR__ . '/../resources/fieldsets' => resource_path('fieldsets'),
+            ], 'gm-fieldsets');
         }
     }
 
@@ -51,7 +71,7 @@ final class ServiceProvider extends AddonServiceProvider
 
     public function register()
     {
-        $this->mergeConfigFrom( __DIR__ . '/../config/config.php', 'google-merchant' );
+        $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'google-merchant');
 
         $this->app->bind(GoogleMerchantManager::class, function () {
             return new GoogleMerchantManager();
@@ -66,7 +86,7 @@ final class ServiceProvider extends AddonServiceProvider
                 ->section('Tools')
                 ->children([
                     Nav::item(__('gm::cp.settings.settings'))->route('gm.index')
-                       ->can('view gm settings'),
+                        ->can('view gm settings'),
                 ]);
         });
     }
@@ -81,6 +101,13 @@ final class ServiceProvider extends AddonServiceProvider
                         ->description(__('gm::cp.permissions.view_settings_description'));
                 });
             });
+        });
+    }
+
+    private function publish(): void
+    {
+        Statamic::afterInstalled(function () {
+            Artisan::call('vendor:publish --tag=gm-fieldsets --force');
         });
     }
 }

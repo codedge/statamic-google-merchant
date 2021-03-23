@@ -1,0 +1,105 @@
+title: 'Google Product'
+fields:
+  -
+    handle: google_product_id
+    field:
+      input_type: text
+      character_limit: 50
+      antlers: false
+      display: 'Google Product ID'
+      type: text
+      icon: text
+      listable: hidden
+      validate:
+        - string
+        - 'max:50'
+      instructions: 'Your product’s unique identifier. **Example:** A2B4'
+  -
+    handle: google_product_gtin
+    field:
+      input_type: number
+      antlers: false
+      display: 'Google Product GTIN'
+      type: text
+      icon: text
+      listable: hidden
+      validate:
+        - numeric
+      instructions: 'Your product’s Global Trade Item Number (GTIN). [See documentation](https://support.google.com/merchants/answer/6324461)'
+  -
+    handle: google_product_mpn
+    field:
+      input_type: text
+      character_limit: 70
+      antlers: false
+      display: 'Google Product MPN'
+      type: text
+      icon: text
+      listable: hidden
+      validate:
+        - alpha_num
+        - 'max:70'
+      instructions: 'Your product’s Manufacturer Part Number (mpn). [See documentation](https://support.google.com/merchants/answer/6324482)'
+  -
+    handle: google_product_title
+    field:
+      input_type: text
+      character_limit: 150
+      antlers: false
+      display: 'Google Product Title'
+      type: text
+      icon: text
+      listable: hidden
+      validate:
+        - string
+        - 'max:150'
+      instructions: 'Your product’s name. **Example:** Mens Pique Polo Shirt'
+  -
+    handle: google_product_description
+    field:
+      character_limit: '5000'
+      antlers: false
+      display: 'Google Product Description'
+      type: textarea
+      icon: textarea
+      listable: hidden
+      validate:
+        - string
+        - 'max:5000'
+  -
+    handle: google_product_price
+    field:
+      display: 'Google Product Price'
+      type: price
+      icon: tags
+      listable: hidden
+      instructions: 'Your product’s price. Put the price without currency in here. **Example:** 15.00.'
+  -
+    handle: google_product_brand
+    field:
+      input_type: text
+      character_limit: 70
+      antlers: false
+      display: 'Google Product Brand'
+      type: text
+      icon: text
+      listable: hidden
+      validate:
+        - string
+        - 'max:70'
+      instructions: 'Your product’s brand name.'
+  -
+    handle: google_product_condition
+    field:
+      display: 'Google Product Condition'
+      type: condition
+      icon: tags
+      listable: hidden
+      instructions: 'The condition of your product at time of sale. [See documentation](https://support.google.com/merchants/answer/6324469)'
+  -
+    handle: google_product_availabilty
+    field:
+      display: 'Google Product Availabilty'
+      type: availability
+      icon: tags
+      listable: hidden

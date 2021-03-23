@@ -19,6 +19,6 @@ final class GoogleShoppingFeed extends Command
 
     public function handle()
     {
-        $this->gmm->createFeed();
+        GoogleMerchantManager::createFeed();
     }
 }

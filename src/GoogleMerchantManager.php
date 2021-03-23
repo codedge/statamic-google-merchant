@@ -13,10 +13,9 @@ final class GoogleMerchantManager
 {
     public function __construct()
     {
-
     }
 
-    public function createFeed()
+    public static function createFeed()
     {
         $feed = new Feed("Test", "", "");
 
