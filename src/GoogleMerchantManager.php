@@ -4,20 +4,15 @@ declare(strict_types=1);
 
 namespace Codedge\GoogleMerchant;
 
-
 use Codedge\GoogleMerchant\Models\Feed;
+use Vitalybaev\GoogleMerchant\Feed as GoogleMerchantFeed;
 
 final class GoogleMerchantManager
 {
-    public function __construct()
-    {
-    }
-
-    public static function createFeed()
+    public static function createFeed(array $collections): GoogleMerchantFeed
     {
         $feed = new Feed(config('app.name') . ' Feed', config('app.url'), '');
 
-        $feed->create('sofa_tables');
-
+        return $feed->create($collections);
     }
 }

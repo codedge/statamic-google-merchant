@@ -34,7 +34,10 @@ final class SettingsController extends BaseCpController
             'collections'    => ['present', 'array'],
         ]);
 
-        $this->settingsRepository->put($request);
+        $payload = $request->all();
+        $payload['collections'] = array_filter($payload['collections']);
+
+        $this->settingsRepository->put(collect($payload));
 
         session()->flash('success', __('gm::cp.settings.updated_successfully'));
 

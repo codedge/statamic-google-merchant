@@ -31,6 +31,11 @@ final class SettingsRepository
         return $this->get()->get(self::IS_ENABLED_KEY);
     }
 
+    public function collections(): array
+    {
+        return $this->get()->get(self::IS_COLLECTIONS_KEY);
+    }
+
     public function get(): Collection
     {
         if (! $this->files->exists($this->path)) {

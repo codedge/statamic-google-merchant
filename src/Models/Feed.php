@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Codedge\GoogleMerchant\Models;
 
+use Codedge\GoogleMerchant\Contracts\ProductContract;
 use Statamic\Entries\Entry;
 use Statamic\Entries\EntryCollection;
 use Statamic\Tags\Collection\Entries;
@@ -19,7 +20,7 @@ final class Feed
     {
     }
 
-    public function create(string $collections): GoogleMerchantFeed
+    public function create(array $collections): GoogleMerchantFeed
     {
         $entries = $this->getEntries(new Parameters([
             'from' => $collections
@@ -41,16 +42,33 @@ final class Feed
     {
         $feed = new GoogleMerchantFeed($this->title, $this->link, $this->description);
 
+        ray('hier');
+
         $entries->each(function (Entry $item, $key) use (&$feed) {
             $product = new Product();
-            $product->setId($item->se);
-            $product->setTitle($item->get('title'));
-            $product->setPrice(23);
-            $product->setDescription($item->description);
+            $product->setId($item->get(ProductContract::ID));
+            $product->setGtin($item->get(ProductContract::GTIN));
+            $product->setMpn($item->get(ProductContract::MPN));
+            $product->setTitle($item->get(ProductContract::TITLE));
+            $product->setPrice($item->get(ProductContract::PRICE));
+            $product->setDescription($item->get(ProductContract::DESC));
+            $product->setBrand($item->get(ProductContract::BRAND));
+            $product->setCondition($item->get(ProductContract::CONDITION, 'new'));
+            $product->setAvailability(
+                $item->get(ProductContract::AVAILABILITY, Product\Availability\Availability::IN_STOCK)
+            );
+            $product->setLink($item->absoluteUrl());
 
             $feed->addProduct($product);
         });
 
+        ray($feed);
+
         return $feed;
+    }
+
+    public function save(Feed $feed)
+    {
+
     }
 }
