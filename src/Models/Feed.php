@@ -62,13 +62,6 @@ final class Feed
             $feed->addProduct($product);
         });
 
-        ray($feed);
-
         return $feed;
-    }
-
-    public function save(Feed $feed)
-    {
-
     }
 }

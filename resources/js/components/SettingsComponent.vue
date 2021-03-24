@@ -17,6 +17,15 @@
                 v-model="enabled"
             />
 
+            <form-group
+                class="border-b"
+                handle="filename"
+                :display="__('gm::cp.settings.filename')"
+                :errors="errors.filename"
+                :instructions="__('gm::cp.settings.filename_instructions')"
+                v-model="filename"
+            />
+
         </publish-fields-container>
 
         <div class="mb-1 content">
@@ -61,6 +70,10 @@ export default {
             type: Array,
             required: false,
         },
+        initialFilename: {
+            type: String,
+            required: true,
+        },
         indexUrl: {
             type: String,
             required: true,
@@ -78,6 +91,7 @@ export default {
             enabled: this.initialEnabled,
             collections: this.initialCollections,
             countCollections: this.initialCollections.length + 1,
+            filename: this.initialFilename,
         }
     },
 
@@ -90,6 +104,7 @@ export default {
             return {
                 enabled: this.enabled,
                 collections: this.collections,
+                filename: this.filename,
             }
         },
     },
@@ -102,7 +117,6 @@ export default {
 
         addCollection() {
             this.countCollections += 1;
-            console.log(this.countCollections);
         },
 
         save() {

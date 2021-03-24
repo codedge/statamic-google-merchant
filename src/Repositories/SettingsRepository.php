@@ -12,6 +12,7 @@ final class SettingsRepository
 {
     const IS_ENABLED_KEY = 'enabled';
     const IS_COLLECTIONS_KEY = 'collections';
+    const FILENAME_KEY = 'filename';
 
     private array $defaultValues;
     protected string $path;
@@ -23,6 +24,7 @@ final class SettingsRepository
         $this->defaultValues = [
             self::IS_ENABLED_KEY  => false,
             self::IS_COLLECTIONS_KEY => [],
+            self::FILENAME_KEY => 'google_product_feed.xml',
         ];
     }
 
@@ -34,6 +36,11 @@ final class SettingsRepository
     public function collections(): array
     {
         return $this->get()->get(self::IS_COLLECTIONS_KEY);
+    }
+
+    public function filename(): string
+    {
+        return $this->get()->get(self::FILENAME_KEY);
     }
 
     public function get(): Collection

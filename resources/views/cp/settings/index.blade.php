@@ -15,5 +15,6 @@
         index-url="{{ cp_route('dashboard') }}"
         :initial-enabled="{{ Statamic\Support\Str::bool($enabled) }}"
         :initial-collections="{{ json_encode($collections) }}"
+        initial-filename="{{ $filename }}"
     ></gm-settings>
 @endsection

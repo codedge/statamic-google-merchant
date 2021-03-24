@@ -19,6 +19,8 @@ final class SettingsController extends BaseCpController
     {
         $this->authorize('view gm settings');
 
+        ray($this->settingsRepository->get()->all());
+
         return view(
             'gm::cp.settings.index',
             $this->settingsRepository->get()->all()
@@ -32,6 +34,7 @@ final class SettingsController extends BaseCpController
         $request->validate([
             'enabled'    => ['required', 'boolean'],
             'collections'    => ['present', 'array'],
+            'filename' => ['required', 'string'],
         ]);
 
         $payload = $request->all();
