@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Codedge\GoogleMerchant\Repositories;
 
+use Codedge\GoogleMerchant\Contracts\ProductContract;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Collection;
 use Statamic\Facades\YAML;
@@ -13,6 +14,7 @@ final class SettingsRepository
     const IS_ENABLED_KEY = 'enabled';
     const IS_COLLECTIONS_KEY = 'collections';
     const FILENAME_KEY = 'filename';
+    const FIELDS_KEY = 'fields';
 
     private array $defaultValues;
     protected string $path;
@@ -25,6 +27,22 @@ final class SettingsRepository
             self::IS_ENABLED_KEY  => false,
             self::IS_COLLECTIONS_KEY => [],
             self::FILENAME_KEY => 'google_product_feed.xml',
+            self::FIELDS_KEY => [
+                ProductContract::ID => '',
+                ProductContract::GTIN => '',
+                ProductContract::MPN => '',
+                ProductContract::TITLE => '',
+                ProductContract::DESC => '',
+                ProductContract::PRICE => '',
+                ProductContract::PRICE_SALE => '',
+                ProductContract::IMAGE => '',
+                ProductContract::IMAGE_ADDITIONAL => '',
+                ProductContract::BRAND => '',
+                ProductContract::CONDITION => '',
+                ProductContract::AVAILABILITY => '',
+                ProductContract::AVAILABILITY_DATE => '',
+                ProductContract::EXPIRATION_DATE => '',
+            ],
         ];
     }
 
@@ -50,6 +68,11 @@ final class SettingsRepository
         }
 
         return collect(YAML::parse($this->files->get($this->path)));
+    }
+
+    public function fields(): array
+    {
+        return $this->get()->get(self::FIELDS_KEY);
     }
 
     public function put($content)

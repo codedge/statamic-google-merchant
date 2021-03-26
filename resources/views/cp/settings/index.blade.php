@@ -16,5 +16,6 @@
         :initial-enabled="{{ Statamic\Support\Str::bool($enabled) }}"
         :initial-collections="{{ json_encode($collections) }}"
         initial-filename="{{ $filename }}"
+        :initial-fields="{{ json_encode($fields) }}"
     ></gm-settings>
 @endsection

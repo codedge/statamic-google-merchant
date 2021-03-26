@@ -19,11 +19,9 @@ final class SettingsController extends BaseCpController
     {
         $this->authorize('view gm settings');
 
-        ray($this->settingsRepository->get()->all());
-
         return view(
             'gm::cp.settings.index',
-            $this->settingsRepository->get()->all()
+            array_merge($this->settingsRepository->get()->all(), ['fields' => $this->settingsRepository->fields()])
         );
     }
 

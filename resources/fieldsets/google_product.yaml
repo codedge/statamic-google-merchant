@@ -1,112 +1,176 @@
 title: 'Google Product'
 fields:
-  -
-    handle: google_product_exclude
-    field:
-      display: 'Exclude from Google Merchant Feed'
-      type: toggle
-      icon: toggle
-      listable: hidden
-  -
-    handle: google_product_id
-    field:
-      input_type: text
-      character_limit: 50
-      antlers: false
-      display: 'Google Product ID'
-      type: text
-      icon: text
-      listable: hidden
-      validate:
-        - string
-        - 'max:50'
-      instructions: 'Your product’s unique identifier. **Example:** A2B4'
-  -
-    handle: google_product_gtin
-    field:
-      input_type: number
-      antlers: false
-      display: 'Google Product GTIN'
-      type: text
-      icon: text
-      listable: hidden
-      validate:
-        - numeric
-      instructions: 'Your product’s Global Trade Item Number (GTIN). [See documentation](https://support.google.com/merchants/answer/6324461)'
-  -
-    handle: google_product_mpn
-    field:
-      input_type: text
-      character_limit: 70
-      antlers: false
-      display: 'Google Product MPN'
-      type: text
-      icon: text
-      listable: hidden
-      validate:
-        - alpha_num
-        - 'max:70'
-      instructions: 'Your product’s Manufacturer Part Number (mpn). [See documentation](https://support.google.com/merchants/answer/6324482)'
-  -
-    handle: google_product_title
-    field:
-      input_type: text
-      character_limit: 150
-      antlers: false
-      display: 'Google Product Title'
-      type: text
-      icon: text
-      listable: hidden
-      validate:
-        - string
-        - 'max:150'
-      instructions: 'Your product’s name. **Example:** Mens Pique Polo Shirt'
-  -
-    handle: google_product_description
-    field:
-      character_limit: '5000'
-      antlers: false
-      display: 'Google Product Description'
-      type: textarea
-      icon: textarea
-      listable: hidden
-      validate:
-        - string
-        - 'max:5000'
-  -
-    handle: google_product_price
-    field:
-      display: 'Google Product Price'
-      type: price
-      icon: tags
-      listable: hidden
-      instructions: 'Your product’s price. Put the price without currency in here. **Example:** 15.00.'
-  -
-    handle: google_product_brand
-    field:
-      input_type: text
-      character_limit: 70
-      antlers: false
-      display: 'Google Product Brand'
-      type: text
-      icon: text
-      listable: hidden
-      validate:
-        - string
-        - 'max:70'
-      instructions: 'Your product’s brand name.'
-  -
-    handle: google_product_condition
-    field:
-      display: 'Google Product Condition'
-      type: condition
-      icon: tags
-      listable: hidden
-      instructions: 'The condition of your product at time of sale. [See documentation](https://support.google.com/merchants/answer/6324469)'
-  -
-    handle: google_product_availabilty
-    field:
-      display: 'Google Product Availabilty'
-      type: availability
-      icon: tags
-      listable: hidden
+    -
+        handle: google_product_exclude
+        field:
+            display: 'Exclude from Google Merchant Feed'
+            type: toggle
+            icon: toggle
+            listable: hidden
+    -
+        handle: google_product_id
+        field:
+            input_type: text
+            character_limit: 50
+            antlers: false
+            display: 'Google Product ID'
+            type: text
+            icon: text
+            listable: hidden
+            validate:
+                - string
+                - 'max:50'
+            instructions: 'Your product’s unique identifier. **Example:** A2B4'
+    -
+        handle: google_product_gtin
+        field:
+            input_type: number
+            antlers: false
+            display: 'Google Product GTIN'
+            type: text
+            icon: text
+            listable: hidden
+            validate:
+                - numeric
+            instructions: 'Your product’s Global Trade Item Number (GTIN). [See documentation](https://support.google.com/merchants/answer/6324461)'
+    -
+        handle: google_product_mpn
+        field:
+            input_type: text
+            character_limit: 70
+            antlers: false
+            display: 'Google Product MPN'
+            type: text
+            icon: text
+            listable: hidden
+            validate:
+                - alpha_num
+                - 'max:70'
+            instructions: 'Your product’s Manufacturer Part Number (mpn). [See documentation](https://support.google.com/merchants/answer/6324482)'
+    -
+        handle: google_product_title
+        field:
+            input_type: text
+            character_limit: 150
+            antlers: false
+            display: 'Google Product Title'
+            type: text
+            icon: text
+            listable: hidden
+            validate:
+                - string
+                - 'max:150'
+            instructions: 'Your product’s name. **Example:** Mens Pique Polo Shirt'
+    -
+        handle: google_product_description
+        field:
+            character_limit: '5000'
+            antlers: false
+            display: 'Google Product Description'
+            type: textarea
+            icon: textarea
+            listable: hidden
+            validate:
+                - string
+                - 'max:5000'
+    -
+        handle: google_product_image
+        field:
+            mode: grid
+            container: assets
+            restrict: false
+            allow_uploads: true
+            max_files: 1
+            display: 'Google Product Image'
+            type: assets
+            icon: assets
+            listable: hidden
+    -
+        handle: google_product_additional_image
+        field:
+            mode: grid
+            container: assets
+            restrict: false
+            allow_uploads: true
+            max_files: 1
+            display: 'Google Product Additional Image'
+            type: assets
+            icon: assets
+            listable: hidden
+    -
+        handle: google_product_price
+        field:
+            display: 'Google Product Price'
+            type: price
+            icon: tags
+            listable: hidden
+            instructions: 'Your product’s price. Put the price without currency in here. **Example:** 15.00.'
+    -
+        handle: google_product_price_sale_price
+        field:
+            display: 'Google Product Price Sale Price'
+            type: price
+            icon: tags
+            listable: hidden
+    -
+        handle: google_product_brand
+        field:
+            input_type: text
+            character_limit: 70
+            antlers: false
+            display: 'Google Product Brand'
+            type: text
+            icon: text
+            listable: hidden
+            validate:
+                - string
+                - 'max:70'
+            instructions: 'Your product’s brand name.'
+    -
+        handle: google_product_condition
+        field:
+            display: 'Google Product Condition'
+            type: condition
+            icon: tags
+            listable: hidden
+            instructions: 'The condition of your product at time of sale. [See documentation](https://support.google.com/merchants/answer/6324469)'
+    -
+        handle: google_product_availabilty
+        field:
+            display: 'Google Product Availabilty'
+            type: availability
+            icon: tags
+            listable: hidden
+    -
+        handle: google_product_availability_date
+        field:
+            mode: single
+            time_enabled: false
+            time_required: false
+            earliest_date: '1900-01-01'
+            full_width: false
+            inline: false
+            columns: 1
+            rows: 1
+            display: 'Google Product Availability Date'
+            type: date
+            icon: date
+            instructions: 'The date a pre-ordered product becomes available for delivery.'
+            listable: hidden
+            if:
+                google_product_availability: 'equals preorder'
+    -
+        handle: google_product_expiration_date
+        field:
+            mode: single
+            time_enabled: false
+            time_required: false
+            earliest_date: '1900-01-01'
+            full_width: false
+            inline: false
+            columns: 1
+            rows: 1
+            display: 'Google Product Expiration Date'
+            type: date
+            icon: date
+            listable: hidden

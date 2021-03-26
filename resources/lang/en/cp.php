@@ -13,6 +13,7 @@ return [
         'configure_your_needs'        => 'Adjust Google Merchant to your needs',
         'enabled'                => 'Enabled',
         'enabled_instructions' => 'Activates the automatic creation of the feed.',
+        'field_configuration' => 'Field configuration',
         'filename' => 'File name',
         'filename_instructions' => 'The file name of the feed file.',
         'settings'                    => 'Settings',

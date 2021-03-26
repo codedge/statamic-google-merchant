@@ -42,8 +42,6 @@ final class Feed
     {
         $feed = new GoogleMerchantFeed($this->title, $this->link, $this->description);
 
-        ray('hier');
-
         $entries->each(function (Entry $item, $key) use (&$feed) {
             $product = new Product();
             $product->setId($item->get(ProductContract::ID));

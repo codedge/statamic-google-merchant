@@ -23,8 +23,9 @@ final class GoogleShoppingFeed extends Command
 
     public function handle()
     {
-        $feed = GoogleMerchantManager::createFeed($this->settingsRepository->collections());
-
-
+        if($this->settingsRepository->isEnabled()) {
+            $feed = GoogleMerchantManager::createFeed($this->settingsRepository->collections());
+            Storage::disk('public')->put($this->settingsRepository->filename(), $feed->build());
+        }
     }
 }

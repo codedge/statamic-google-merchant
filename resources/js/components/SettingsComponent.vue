@@ -41,11 +41,31 @@
             <div v-for="(c, index) in this.countCollections">
                 <form-group
                     class="border-b field"
-                    handle="collections[]"
+                    :handle="collections[index]"
                     :display="__('gm::cp.settings.collection')"
                     :errors="errors.collections"
                     :instructions="__('gm::cp.settings.collection_instructions')"
                     v-model="collections[index]"
+                />
+            </div>
+
+        </publish-fields-container>
+
+        <div class="mb-1 content">
+            <h2 class="text-base">
+                {{ __('gm::cp.settings.field_configuration') }}
+            </h2>
+        </div>
+
+        <publish-fields-container class="card p-0 mb-3 configure-section">
+            <div class="field-w-full" v-for="(fieldValue, fieldName) in this.fields">
+                <form-group
+                    class="field"
+                    :handle="fieldName"
+                    :display="__('gm::cp.fields.' + fieldName)"
+                    :errors="errors.fields"
+                    :instructions="__('gm::cp.fields.fixed_value_handle') + ' ' + __('gm::cp.fields.' + fieldName + '_instructions')"
+                    v-model="fields[fieldName]"
                 />
             </div>
         </publish-fields-container>
@@ -67,6 +87,10 @@ export default {
             required: true,
         },
         initialCollections: {
+            type: Array,
+            required: false,
+        },
+        initialFields: {
             type: Array,
             required: false,
         },
@@ -92,6 +116,7 @@ export default {
             collections: this.initialCollections,
             countCollections: this.initialCollections.length + 1,
             filename: this.initialFilename,
+            fields: this.initialFields,
         }
     },
 
@@ -105,6 +130,7 @@ export default {
                 enabled: this.enabled,
                 collections: this.collections,
                 filename: this.filename,
+                fields: this.fields
             }
         },
     },
@@ -140,7 +166,6 @@ export default {
     },
 
     mounted() {
-        console.log(this.countCollections);
         this.$keys.bindGlobal(['mod+s'], e => {
             e.preventDefault();
             this.save();
