@@ -21,6 +21,7 @@
   "require": {
     "php": "^8.0",
     "ext-json": "*",
+    "ext-simplexml": "*",
     "statamic/cms": "^3.0.47",
     "vitalybaev/google-merchant-feed": "^2.1"
   },

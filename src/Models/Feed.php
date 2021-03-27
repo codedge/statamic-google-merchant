@@ -49,7 +49,9 @@ final class Feed
             $product->setGtin($this->getFieldContent(ProductContract::GTIN, $item));
             $product->setMpn($this->getFieldContent(ProductContract::MPN, $item));
             $product->setTitle($this->getFieldContent(ProductContract::TITLE, $item));
-            $product->setPrice($this->getFieldContent(ProductContract::PRICE, $item));
+            $product->setPrice(
+                $this->getFieldContent(ProductContract::PRICE, $item) . ' ' . config('google-merchant.currency.iso_code')
+            );
             $product->setDescription($this->getFieldContent(ProductContract::DESC, $item));
             $product->setBrand($this->getFieldContent(ProductContract::BRAND, $item));
             $product->setCondition($this->getFieldContent(ProductContract::CONDITION, $item));
@@ -60,6 +62,11 @@ final class Feed
             $product->setLink($item->absoluteUrl());
             $product->setImage($this->getFieldContent(ProductContract::IMAGE, $item));
             $product->setAdditionalImage($this->getFieldContent(ProductContract::IMAGE_ADDITIONAL, $item));
+
+            $product->setAttribute(
+                'availability_date', $this->getFieldContent(ProductContract::AVAILABILITY_DATE, $item)
+            );
+            $product->setAttribute('expiration_date', $this->getFieldContent(ProductContract::EXPIRATION_DATE, $item));
 
             $feed->addProduct($product);
         });
