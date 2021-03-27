@@ -8,7 +8,7 @@ use Statamic\Fields\Fieldtype;
 
 class Availability extends Fieldtype
 {
-    protected static $title = "Google Product Availabilty";
+    protected static $title = 'Google Product Availabilty';
     protected $categories = ['googlemerchant'];
     protected $icon = 'tags';
     protected $default = 'in_stock';

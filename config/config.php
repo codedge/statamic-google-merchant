@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 return [
     'feed' => [
-        'name' => env('APP_NAME') . ' Feed',
+        'name' => env('APP_NAME').' Feed',
         'description' => '',
         'link' => env('APP_URL', ''),
     ],

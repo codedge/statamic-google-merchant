@@ -11,7 +11,7 @@ final class GoogleMerchantManager
 {
     public static function createFeed(array $collections): GoogleMerchantFeed
     {
-        $feed = new Feed(config('app.name') . ' Feed', config('app.url'), '');
+        $feed = new Feed(config('app.name').' Feed', config('app.url'), '');
 
         return $feed->create($collections);
     }
