@@ -18,13 +18,15 @@ Here you can set up in which collections your products reside, which file name o
 
 #### File output
 
-The generated field file is saved on the `public` disk. So make sure you actually have on.
+The generated field file is saved on the `public` disk. So make sure you actually have one.
 If you want to put it in a subdirectory, just enter it in the Control Panel like `feeds/gmf.xml`.
 
 #### Collections
 
 The `handle` of the collection specified should actually exist. Currently, there is no validation if the collection entered  
 Also make sure that every collection has all the fields that are required to build the field.
+
+![Settings](./docs/gmf_settings_collections.png)
 
 #### Fields (global)
 
@@ -35,7 +37,9 @@ For each field in the feed you can configure either a fixed value or another fie
 
 Whenever you entered a value enclosed in curly brackets `{{ }}`, the value is considered being a field.
 
-#### Field per products
+![Settings](./docs/gmf_settings_fields.png)
+
+#### Fields per products
 
 You can also add the fieldset that is shipped with the package tp configure every field for every product on its own.
-Just add the fieldset to your blue print and you are good to go.
+Just add the fieldset to your blueprint, and you are good to go.
