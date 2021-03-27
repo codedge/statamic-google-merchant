@@ -1,67 +1,67 @@
 {
-  "name": "codedge/statamic-google-merchant",
-  "type": "statamic-addon",
-  "description": "Create Google Shopping Feed in Statamic",
-  "keywords": [
-    "statamic",
-    "google",
-    "shopping",
-    "feed",
-    "merchant",
-    "shopping feed"
-  ],
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Holger Lösken",
-      "email": "holger.loesken@codedge.de",
-      "homepage": "https://www.codedge.de"
-    }
-  ],
-  "require": {
-    "php": "^8.0",
-    "ext-json": "*",
-    "ext-simplexml": "*",
-    "statamic/cms": "^3.0.47",
-    "vitalybaev/google-merchant-feed": "^2.1"
-  },
-  "require-dev": {
-    "orchestra/testbench": "^6.15.0",
-    "phpunit/phpunit": "^9.5",
-    "spatie/ray": "^1.21"
-  },
-  "config": {
-    "process-timeout": 0,
-    "sort-packages": true
-  },
-  "extra": {
-    "laravel": {
-      "providers": [
-        "Codedge\\GoogleMerchant\\ServiceProvider"
-      ]
+    "name": "codedge/statamic-google-merchant",
+    "type": "statamic-addon",
+    "description": "Create Google Shopping Feed in Statamic",
+    "keywords": [
+        "statamic",
+        "google",
+        "shopping",
+        "feed",
+        "merchant",
+        "shopping feed"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Holger Lösken",
+            "email": "holger.loesken@codedge.de",
+            "homepage": "https://www.codedge.de"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "ext-json": "*",
+        "ext-simplexml": "*",
+        "statamic/cms": "^3.0.47",
+        "vitalybaev/google-merchant-feed": "^2.1"
     },
-    "statamic": {
-      "description": "Login to Control Panel without using a password",
-      "name": "MagicLink"
+    "require-dev": {
+        "orchestra/testbench": "^6.15.0",
+        "phpunit/phpunit": "^9.5",
+        "spatie/ray": "^1.21"
+    },
+    "config": {
+        "process-timeout": 0,
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Codedge\\GoogleMerchant\\ServiceProvider"
+            ]
+        },
+        "statamic": {
+            "description": "Login to Control Panel without using a password",
+            "name": "MagicLink"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Codedge\\GoogleMerchant\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Codedge\\GoogleMerchant\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "./vendor/bin/phpunit --debug --testdox",
+        "test-clover-coverage": "./vendor/bin/phpunit --coverage-clover clover.xml",
+        "test-coverage": "./vendor/bin/phpunit --coverage-html coverage"
+    },
+    "support": {
+        "issues": "https://github.com/codedge/statamic-google-merchant/issues",
+        "source": "https://github.com/codedge/statamic-google-merchant"
     }
-  },
-  "autoload": {
-    "psr-4": {
-      "Codedge\\GoogleMerchant\\": "src"
-    }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "Codedge\\GoogleMerchant\\Tests\\": "tests"
-    }
-  },
-  "scripts": {
-    "test": "./vendor/bin/phpunit --debug --testdox",
-    "test-clover-coverage": "./vendor/bin/phpunit --coverage-clover clover.xml",
-    "test-coverage": "./vendor/bin/phpunit --coverage-html coverage"
-  },
-  "support": {
-    "issues": "https://github.com/codedge/statamic-google-merchant/issues",
-    "source": "https://github.com/codedge/statamic-google-merchant"
-  }
 }
