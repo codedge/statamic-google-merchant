@@ -11,7 +11,7 @@ return [
         'google_product_id_instructions' => '[Offizielle Dokumentation](https://support.google.com/merchants/answer/6324405 )',
         'google_product_mpn' => 'Teilenummer des Herstellers (Manufacturer Part Number)',
         'google_product_mpn_instructions' => '[Offizielle Dokumentation](https://support.google.com/merchants/answer/6324482)',
-        'google_product_gtin' => 'Teilenummer des Herstellers (Manufacturer Part Number)',
+        'google_product_gtin' => 'Die Global Trade Item Number (GTIN) Ihres Produkts',
         'google_product_gtin_instructions' => '[Offizielle Dokumentation](https://support.google.com/merchants/answer/6324461)',
         'google_product_title' => 'Titel',
         'google_product_title_instructions' => '[Offizielle Dokumentation](https://support.google.com/merchants/answer/6324415)',

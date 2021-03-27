@@ -52,12 +52,13 @@ final class Feed
             $product->setPrice(
                 $this->getFieldContent(ProductContract::PRICE, $item) . ' ' . config('google-merchant.currency.iso_code')
             );
+            $product->setSalePrice(
+                $this->getFieldContent(ProductContract::PRICE_SALE, $item) . ' ' . config('google-merchant.currency.iso_code')
+            );
             $product->setDescription($this->getFieldContent(ProductContract::DESC, $item));
             $product->setBrand($this->getFieldContent(ProductContract::BRAND, $item));
             $product->setCondition($this->getFieldContent(ProductContract::CONDITION, $item));
             $product->setAvailability($this->getFieldContent(ProductContract::AVAILABILITY, $item));
-            $product->setPrice($this->getFieldContent(ProductContract::PRICE, $item));
-            $product->setSalePrice($this->getFieldContent(ProductContract::PRICE_SALE, $item));
             $product->setBrand($this->getFieldContent(ProductContract::BRAND, $item));
             $product->setLink($item->absoluteUrl());
             $product->setImage($this->getFieldContent(ProductContract::IMAGE, $item));
