@@ -26,7 +26,7 @@ If you want to put it in a subdirectory, just enter it in the Control Panel like
 The `handle` of the collection specified should actually exist. Currently, there is no validation if the collection entered  
 Also make sure that every collection has all the fields that are required to build the field.
 
-#### Fields
+#### Fields (global)
 
 For each field in the feed you can configure either a fixed value or another field, where you already have the field value in.
 
@@ -34,3 +34,8 @@ For each field in the feed you can configure either a fixed value or another fie
 -   Reference the `title` field for the product name: `{{ title }}`
 
 Whenever you entered a value enclosed in curly brackets `{{ }}`, the value is considered being a field.
+
+#### Field per products
+
+You can also add the fieldset that is shipped with the package tp configure every field for every product on its own.
+Just add the fieldset to your blue print and you are good to go.
