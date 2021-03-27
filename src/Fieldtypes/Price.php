@@ -8,7 +8,7 @@ use Statamic\Fields\Fieldtype;
 
 class Price extends Fieldtype
 {
-    protected static $title = "Google Product Price";
+    protected static $title = 'Google Product Price';
     protected $categories = ['googlemerchant'];
     protected $icon = 'tags';
 

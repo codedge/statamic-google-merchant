@@ -20,7 +20,7 @@ use Statamic\Statamic;
 final class ServiceProvider extends AddonServiceProvider
 {
     protected $routes = [
-        'cp'  => __DIR__ . '/../routes/cp.php',
+        'cp'  => __DIR__.'/../routes/cp.php',
     ];
 
     protected $fieldtypes = [
@@ -38,7 +38,7 @@ final class ServiceProvider extends AddonServiceProvider
     ];
 
     protected $scripts = [
-        __DIR__ . '/../public/js/statamic-gm.js',
+        __DIR__.'/../public/js/statamic-gm.js',
     ];
 
     protected $viewNamespace = 'gm';
@@ -47,7 +47,7 @@ final class ServiceProvider extends AddonServiceProvider
     {
         parent::boot();
 
-        $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', 'gm');
+        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'gm');
 
         $this->bootNavigation();
         $this->bootPermissions();
@@ -55,17 +55,17 @@ final class ServiceProvider extends AddonServiceProvider
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../config/config.php' => config_path('google-merchant.php'),
+                __DIR__.'/../config/config.php' => config_path('google-merchant.php'),
             ], 'gm-config');
 
             //Publish views
             $this->publishes([
-                __DIR__ . '/../resources/views' => resource_path('views/vendor/statamic-google-merchant/views'),
+                __DIR__.'/../resources/views' => resource_path('views/vendor/statamic-google-merchant/views'),
             ], 'gm-views');
 
             //Publish fieldsets
             $this->publishes([
-                __DIR__ . '/../resources/fieldsets' => resource_path('fieldsets'),
+                __DIR__.'/../resources/fieldsets' => resource_path('fieldsets'),
             ], 'gm-fieldsets');
         }
     }
@@ -78,7 +78,7 @@ final class ServiceProvider extends AddonServiceProvider
 
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'google-merchant');
+        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'google-merchant');
 
         $this->app->bind(GoogleMerchantManager::class, function () {
             return new GoogleMerchantManager();
