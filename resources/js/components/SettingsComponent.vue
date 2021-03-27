@@ -38,7 +38,7 @@
         </div>
 
         <publish-fields-container class="card p-0 mb-3 configure-section">
-            <div v-for="(c, index) in this.countCollections">
+            <div class="field-w-full" v-for="(c, index) in this.countCollections">
                 <form-group
                     class="border-b field"
                     :handle="collections[index]"

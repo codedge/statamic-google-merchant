@@ -459,6 +459,7 @@ var render = function() {
         _vm._l(this.countCollections, function(c, index) {
           return _c(
             "div",
+            { staticClass: "field-w-full" },
             [
               _c("form-group", {
                 staticClass: "border-b field",

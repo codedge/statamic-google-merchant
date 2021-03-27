@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Codedge\GoogleMerchant\Models;
 
 use Codedge\GoogleMerchant\Contracts\ProductContract;
+use Codedge\GoogleMerchant\Repositories\SettingsRepository;
 use Statamic\Entries\Entry;
 use Statamic\Entries\EntryCollection;
 use Statamic\Tags\Collection\Entries;
@@ -61,5 +62,19 @@ final class Feed
         });
 
         return $feed;
+    }
+
+    /**
+     * Get the content of a product field either from the configuration or from the entry itelf.
+     * Handling of static values or {{ handle }} included.
+     *
+     * @param string $fieldName
+     * @param Entry $entry
+     *
+     * @return string Content of the field
+     */
+    private function getFieldContent(string $fieldName, Entry $entry): string
+    {
+        $settingsRepository = resolve(SettingsRepository::class);
     }
 }

@@ -8,7 +8,11 @@ use Codedge\GoogleMerchant\Console\Commands\GoogleShoppingFeed;
 use Codedge\GoogleMerchant\Fieldtypes\Availability;
 use Codedge\GoogleMerchant\Fieldtypes\Condition;
 use Codedge\GoogleMerchant\Fieldtypes\Price;
+use Codedge\GoogleMerchant\Repositories\SettingsRepository;
+use Hamcrest\Core\Set;
+use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Facades\Artisan;
+use Spatie\Ray\Settings\Settings;
 use Statamic\Facades\CP\Nav;
 use Statamic\Facades\Permission;
 use Statamic\Providers\AddonServiceProvider;
@@ -75,6 +79,10 @@ final class ServiceProvider extends AddonServiceProvider
 
         $this->app->bind(GoogleMerchantManager::class, function () {
             return new GoogleMerchantManager();
+        });
+
+        $this->app->singleton(SettingsRepository::class, function () {
+            return new SettingsRepository(new Filesystem());
         });
     }
 
