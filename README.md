@@ -8,10 +8,10 @@ A Statamic V3 addon to generate a Google Product Feed.
 
 **Features:**
 
-- Globally configure collections your products are in
-- Use existing fields for the Google Merchant Feed
-- Add a prepared fieldset to your blueprint
-- Custom artisan command or use the schedule to generate the feed
+-   Globally configure collections your products are in
+-   Use existing fields for the Google Merchant Feed
+-   Add a prepared fieldset to your blueprint
+-   Custom artisan command or use the schedule to generate the feed
 
 ## Installation
 
