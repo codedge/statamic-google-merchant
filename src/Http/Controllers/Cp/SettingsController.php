@@ -6,7 +6,7 @@ namespace Codedge\GoogleMerchant\Http\Controllers\Cp;
 
 use Codedge\GoogleMerchant\Repositories\SettingsRepository;
 use Illuminate\Http\Request;
-use Statamic\Facades\Collection;
+use Illuminate\Validation\Rule;
 
 final class SettingsController extends BaseCpController
 {
@@ -31,8 +31,10 @@ final class SettingsController extends BaseCpController
 
         $request->validate([
             'enabled'    => ['required', 'boolean'],
-            'collections'    => ['present', 'array'],
-            'filename' => ['required', 'string'],
+            'collections'    => ['required_if:enabled,true', 'array'],
+            'filename' => ['required_if:enabled,true', 'string'],
+            'fields.google_product_condition' => ['required_if:enabled,true', 'string'],
+            'fields.google_product_availability' => ['required_if:enabled,true', 'string']
         ]);
 
         $payload = $request->all();

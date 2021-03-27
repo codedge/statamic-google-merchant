@@ -45,18 +45,21 @@ final class Feed
 
         $entries->each(function (Entry $item, $key) use (&$feed) {
             $product = new Product();
-            $product->setId($item->get(ProductContract::ID));
-            $product->setGtin($item->get(ProductContract::GTIN));
-            $product->setMpn($item->get(ProductContract::MPN));
-            $product->setTitle($item->get(ProductContract::TITLE));
-            $product->setPrice($item->get(ProductContract::PRICE));
-            $product->setDescription($item->get(ProductContract::DESC));
-            $product->setBrand($item->get(ProductContract::BRAND));
-            $product->setCondition($item->get(ProductContract::CONDITION, 'new'));
-            $product->setAvailability(
-                $item->get(ProductContract::AVAILABILITY, Product\Availability\Availability::IN_STOCK)
-            );
+            $product->setId($this->getFieldContent(ProductContract::ID, $item));
+            $product->setGtin($this->getFieldContent(ProductContract::GTIN, $item));
+            $product->setMpn($this->getFieldContent(ProductContract::MPN, $item));
+            $product->setTitle($this->getFieldContent(ProductContract::TITLE, $item));
+            $product->setPrice($this->getFieldContent(ProductContract::PRICE, $item));
+            $product->setDescription($this->getFieldContent(ProductContract::DESC, $item));
+            $product->setBrand($this->getFieldContent(ProductContract::BRAND, $item));
+            $product->setCondition($this->getFieldContent(ProductContract::CONDITION, $item));
+            $product->setAvailability($this->getFieldContent(ProductContract::AVAILABILITY, $item));
+            $product->setPrice($this->getFieldContent(ProductContract::PRICE, $item));
+            $product->setSalePrice($this->getFieldContent(ProductContract::PRICE_SALE, $item));
+            $product->setBrand($this->getFieldContent(ProductContract::BRAND, $item));
             $product->setLink($item->absoluteUrl());
+            $product->setImage($this->getFieldContent(ProductContract::IMAGE, $item));
+            $product->setAdditionalImage($this->getFieldContent(ProductContract::IMAGE_ADDITIONAL, $item));
 
             $feed->addProduct($product);
         });
@@ -75,6 +78,20 @@ final class Feed
      */
     private function getFieldContent(string $fieldName, Entry $entry): string
     {
+        if($entry->get($fieldName)) {
+            return $entry->get($fieldName);
+        }
+
+        /** @var SettingsRepository $settingsRepository */
         $settingsRepository = resolve(SettingsRepository::class);
+        $settingsField = $settingsRepository->get()->get('fields')[$fieldName] ?: '';
+
+        // if {{ handle }} is entered
+        preg_match('/{{(.*)}}/', $settingsField, $matches);
+        if(isset($matches[1]) && $name = trim($matches[1])) {
+            return $entry->get($name);
+        }
+
+        return $settingsField;
     }
 }

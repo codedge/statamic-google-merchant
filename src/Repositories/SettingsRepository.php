@@ -8,6 +8,8 @@ use Codedge\GoogleMerchant\Contracts\ProductContract;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Collection;
 use Statamic\Facades\YAML;
+use Vitalybaev\GoogleMerchant\Product\Availability\Availability;
+use Vitalybaev\GoogleMerchant\Product\Condition;
 
 final class SettingsRepository
 {
@@ -25,7 +27,7 @@ final class SettingsRepository
 
         $this->defaultValues = [
             self::IS_ENABLED_KEY  => false,
-            self::IS_COLLECTIONS_KEY => [],
+            self::IS_COLLECTIONS_KEY => ['demo_collection'],
             self::FILENAME_KEY => 'google_product_feed.xml',
             self::FIELDS_KEY => [
                 ProductContract::ID => '',
@@ -38,8 +40,8 @@ final class SettingsRepository
                 ProductContract::IMAGE => '',
                 ProductContract::IMAGE_ADDITIONAL => '',
                 ProductContract::BRAND => '',
-                ProductContract::CONDITION => '',
-                ProductContract::AVAILABILITY => '',
+                ProductContract::CONDITION => Condition::NEW_PRODUCT,
+                ProductContract::AVAILABILITY => Availability::IN_STOCK,
                 ProductContract::AVAILABILITY_DATE => '',
                 ProductContract::EXPIRATION_DATE => '',
             ],
