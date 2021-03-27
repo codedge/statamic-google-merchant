@@ -16,14 +16,13 @@ final class GoogleShoppingFeed extends Command
 
     public function __construct(
         protected SettingsRepository $settingsRepository
-    )
-    {
+    ) {
         parent::__construct();
     }
 
     public function handle()
     {
-        if($this->settingsRepository->isEnabled()) {
+        if ($this->settingsRepository->isEnabled()) {
             $feed = GoogleMerchantManager::createFeed($this->settingsRepository->collections());
             Storage::disk('public')->put($this->settingsRepository->filename(), $feed->build());
 
