@@ -23,7 +23,7 @@ composer require codedge/statamic-google-merchant
 
 ## Documentation
 
-See the [documentation here](DOCUMENTATION.md).
+See the [documentation here](https://github.com/codedge/statamic-google-merchant/blob/main/DOCUMENTATION.md).
 
 ## License
 
