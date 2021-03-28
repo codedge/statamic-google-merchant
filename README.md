@@ -10,16 +10,10 @@ A Statamic V3 addon to generate a Google Product Feed.
 
 -   Globally configure collections your products are in
 -   Use existing fields for the Google Merchant Feed
--   Add a prepared fieldset to your blueprint
+-   [Optional] Add a prepared fieldset to your blueprint
 -   Custom artisan command or use the schedule to generate the feed
-
-## Installation
-
-Run the following the pull in the package with composer:
-
-```
-composer require codedge/statamic-google-merchant
-```
+-   Selectively disable products that should not be part of the feed
+-   Show a widget on you Control Panels dashboard
 
 ## Documentation
 

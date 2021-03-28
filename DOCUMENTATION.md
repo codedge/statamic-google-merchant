@@ -1,3 +1,11 @@
+## Installation
+
+Run the following the pull in the package with composer:
+
+```
+composer require codedge/statamic-google-merchant
+```
+
 ## Basic configuration
 
 ### Currency
