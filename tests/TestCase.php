@@ -6,7 +6,6 @@ namespace Codedge\GoogleMerchant\Tests;
 
 use Codedge\GoogleMerchant\ServiceProvider;
 use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Storage;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
 use Statamic\Extend\Manifest;
 use Statamic\Facades\Collection;
@@ -76,7 +75,7 @@ class TestCase extends OrchestraTestCase
 
     protected function deleteSettingsFile(): bool
     {
-        if(file_exists(storage_path('statamic-google-merchant/settings.yaml'))) {
+        if (file_exists(storage_path('statamic-google-merchant/settings.yaml'))) {
             return unlink(storage_path('statamic-google-merchant/settings.yaml'));
         }
 
