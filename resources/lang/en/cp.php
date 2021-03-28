@@ -58,4 +58,12 @@ return [
     ],
 
     'unable_to_save' => 'Cannot save. Please check your console/log files.',
+
+    'widget' => [
+        'feed_exists' => 'Feed exists?',
+        'yes' => 'Yes',
+        'no' => 'No',
+        'not_existing' => 'The feed file does not exist.',
+        'products_in_feed' => 'Products in feed',
+    ],
 ];

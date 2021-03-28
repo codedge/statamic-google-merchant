@@ -11,6 +11,20 @@ The configuration can be done in the `config/google-merchant.php` file.
 ]
 ```
 
+### Widget
+
+You can add a widget to your dashboard by adding `google_merchant` to your `config/statamic/cp.php` file.
+
+```php
+'widgets' => [
+    [
+        'type' => 'google_merchant',
+        'width' => '50',
+    ],
+    // other widgets
+]
+```
+
 ### Selecting collections, file output path
 
 In your Statamic Control Panel (CP) in the left sidebar you will find a link to Google Merchant settings.
@@ -30,7 +44,7 @@ Also make sure that every collection has all the fields that are required to bui
 
 For each field in the feed you can configure either a fixed value or another field, where you already have the field value in.
 
--   Static value for a field: `My static value
+-   Static value for a field: `My static value`
 -   Reference the `title` field for the product name: `{{ title }}`
 
 Whenever you entered a value enclosed in curly brackets `{{ }}`, the value is considered being a field.

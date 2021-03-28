@@ -17,10 +17,17 @@ final class GoogleMerchant extends Widget
 
     public function html()
     {
-        $xml = new SimpleXMLElement(Storage::disk('public')->get($this->settingsRepository->filename()));
+        $exists = false;
+        $count = 0;
 
-        ray($xml);
+        $feedFile = storage_path($this->settingsRepository->filename());
 
-        return view('gm::widgets.google-merchant-feed');
+        if(file_exists($feedFile)) {
+            $xml = new SimpleXMLElement(file_get_contents($feedFile));
+            $exists = true;
+            $count = count($xml->channel->item);
+        }
+
+        return view('gm::cp.widgets.google-merchant-feed', compact("exists", "count"));
     }
 }

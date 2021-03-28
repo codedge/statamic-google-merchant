@@ -58,4 +58,12 @@ return [
     ],
 
     'unable_to_save' => 'Speichern fehlgeschlagen. Prüfe deine Konsole/Log-Dateien.',
+
+    'widget' => [
+        'feed_exists' => 'Feed vorhanden?',
+        'yes' => 'Ja',
+        'no' => 'Nein',
+        'not_existing' => 'Die Feed-Datei existiert nicht.',
+        'products_in_feed' => 'Produkte im Feed',
+    ],
 ];
