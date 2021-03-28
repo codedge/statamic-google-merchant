@@ -42,7 +42,7 @@ class SettingsControllerTest extends TestCase
         $payload = [
             'enabled'    => true,
             'collections' => [
-                'test_collection'
+                'test_collection',
             ],
             'filename' => 'test_feed.xml',
             'fields' => [
