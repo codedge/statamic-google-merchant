@@ -6,8 +6,10 @@ namespace Codedge\GoogleMerchant\Tests;
 
 use Codedge\GoogleMerchant\ServiceProvider;
 use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Storage;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
 use Statamic\Extend\Manifest;
+use Statamic\Facades\Collection;
 use Statamic\Facades\Role;
 use Statamic\Facades\User;
 use Statamic\Providers\StatamicServiceProvider;
@@ -60,6 +62,25 @@ class TestCase extends OrchestraTestCase
         $this->be($user);
 
         return $user;
+    }
+
+    protected function createCollection(string $handle = 'test_collection'): \Statamic\Entries\Collection
+    {
+        return Collection::make($handle)->save();
+    }
+
+    protected function deleteCollection(string $handle = 'test_collection'): bool
+    {
+        return Collection::findByHandle($handle)->delete();
+    }
+
+    protected function deleteSettingsFile(): bool
+    {
+        if(file_exists(storage_path('statamic-google-merchant/settings.yaml'))) {
+            return unlink(storage_path('statamic-google-merchant/settings.yaml'));
+        }
+
+        return false;
     }
 
     /**
