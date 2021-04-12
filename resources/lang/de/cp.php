@@ -30,7 +30,7 @@ return [
         'google_product_condition' => 'Zustand',
         'google_product_condition_instructions' => 'Mögliche Festwerte: `new`, `refurbished`, `used`. [Offizielle Dokumentation](https://support.google.com/merchants/answer/6324469)',
         'google_product_availability' => 'Verfügbarkeit',
-        'google_product_availability_instructions' => 'Mögliche Festwerte: `in_stock`, `out_of_stock`, `preorder`. [Offizielle Dokumentation](https://support.google.com/merchants/answer/6324448)',
+        'google_product_availability_instructions' => 'Mögliche Festwerte: `in stock`, `out of stock`, `preorder`. [Offizielle Dokumentation](https://support.google.com/merchants/answer/6324448)',
         'google_product_availability_date' => 'Verfügbarkeitsdatum',
         'google_product_availability_date_instructions' => '[Offizielle Dokumentation](https://support.google.com/merchants/answer/6324470)',
         'google_product_expiration_date' => 'Verfallsdatum',

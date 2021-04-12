@@ -30,7 +30,7 @@ return [
         'google_product_condition' => 'Condition',
         'google_product_condition_instructions' => 'Possible fixed values: `new`, `refurbished`, `used`. [Official documentation](https://support.google.com/merchants/answer/6324469)',
         'google_product_availability' => 'Availability',
-        'google_product_availability_instructions' => 'Possibled fixed values: `in_stock`, `out_of_stock`, `preorder`. [Official documentation](https://support.google.com/merchants/answer/6324448)',
+        'google_product_availability_instructions' => 'Possible fixed values: `in stock`, `out of stock`, `preorder`. [Official documentation](https://support.google.com/merchants/answer/6324448)',
         'google_product_availability_date' => 'Availability date',
         'google_product_availability_date_instructions' => '[Official documentation](https://support.google.com/merchants/answer/6324470)',
         'google_product_expiration_date' => 'Expiration date',
