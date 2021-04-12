@@ -102,7 +102,7 @@ final class Feed
             // The fallback is used for '{{ id }}' as the id field cannot be retrieved from the data array
             $content = $entry->get($name, $entry->fluentlyGetOrSet($name)->value(null));
 
-            if(is_array($content)) {
+            if (is_array($content)) {
                 // Special handling for bard fields
                 $content = collect($content)->pluck('content')->flatten(1)->pluck('text')->join('');
             }
