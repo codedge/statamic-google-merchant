@@ -52,7 +52,9 @@ final class Feed
                 $this->getFieldContent(ProductContract::PRICE, $item).' '.config('google-merchant.currency.iso_code')
             );
             $product->setSalePrice(
-                $this->getFieldContent(ProductContract::PRICE_SALE, $item).' '.config('google-merchant.currency.iso_code')
+                $this->getFieldContent(ProductContract::PRICE_SALE, $item)
+                    ? $this->getFieldContent(ProductContract::PRICE_SALE, $item) .' '.config('google-merchant.currency.iso_code')
+                    : ''
             );
             $product->setDescription($this->getFieldContent(ProductContract::DESC, $item));
             $product->setBrand($this->getFieldContent(ProductContract::BRAND, $item));
