@@ -96,7 +96,16 @@ final class Feed
         // if {{ handle }} is entered
         preg_match('/{{(.*)}}/', $settingsField, $matches);
         if (isset($matches[1]) && $name = trim($matches[1])) {
-            return $entry->get($name);
+            // Get the content from data fields and use fallback to internal fields
+            // The fallback is used for '{{ id }}' as the id field cannot be retrieved from the data array
+            $content = $entry->get($name, $entry->fluentlyGetOrSet($name)->value(null));
+
+            if(is_array($content)) {
+                // Special handling for bard fields
+                $content = collect($content)->pluck('content')->flatten(1)->pluck('text')->join('');
+            }
+
+            return (string) $content;
         }
 
         return $settingsField;
