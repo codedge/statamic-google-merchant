@@ -21,5 +21,4 @@ See the [documentation here](https://github.com/codedge/statamic-google-merchant
 
 ## License
 
-Before going into production with _Statamic Google Merchant_, you need to buy a licence at the [Statamic Marketplace](https://statamic.com/addons/codedge/google-merchant-feed).
-_Statamic Google Merchant_ is not free software!
+The MIT License (MIT). Please see (License File)[LICENSE] for more information.
