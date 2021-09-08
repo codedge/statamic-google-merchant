@@ -80,8 +80,8 @@ final class Feed
      * Get the content of a product field either from the configuration or from the entry itelf.
      * Handling of static values or {{ handle }} included.
      *
-     * @param string $fieldName
-     * @param Entry $entry
+     * @param  string  $fieldName
+     * @param  Entry  $entry
      *
      * @return string Content of the field
      */
