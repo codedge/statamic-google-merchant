@@ -82,7 +82,6 @@ final class Feed
      *
      * @param  string  $fieldName
      * @param  Entry  $entry
-     *
      * @return string Content of the field
      */
     private function getFieldContent(string $fieldName, Entry $entry): string
