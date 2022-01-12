@@ -101,8 +101,25 @@ final class Feed
             // The fallback is used for '{{ id }}' as the id field cannot be retrieved from the data array
             $content = $entry->get($name, $entry->fluentlyGetOrSet($name)->value(null));
 
+            // Special handling for image fields
+            if(is_array($content) && str_contains($name, 'image')) {
+                $path = collect($content)->first()['image']['src'];
+                $asset = \Statamic\Facades\Asset::query()
+                                                ->where('container', 'product_images')
+                                                ->where('path', $path)
+                                                ->get()
+                                                ->first();
+
+                /** @var Glide $glideTag */
+                $glideTag = app(Glide::class);
+                $glideTag->setContext([]);
+                $glideTag->setParameters(['src' => $asset]);
+
+                $content = Site::current()->absoluteUrl() . $glideTag->generate()[0]['url'];
+            }
+
+            // Special handling for bard fields
             if (is_array($content)) {
-                // Special handling for bard fields
                 $content = collect($content)->pluck('content')->flatten(1)->pluck('text')->join('');
             }
 
