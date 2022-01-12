@@ -102,7 +102,7 @@ final class Feed
             $content = $entry->get($name, $entry->fluentlyGetOrSet($name)->value(null));
 
             // Special handling for image fields
-            if(is_array($content) && str_contains($name, 'image')) {
+            if (is_array($content) && str_contains($name, 'image')) {
                 $path = collect($content)->first()['image']['src'];
                 $asset = \Statamic\Facades\Asset::query()
                                                 ->where('container', 'product_images')
@@ -115,7 +115,7 @@ final class Feed
                 $glideTag->setContext([]);
                 $glideTag->setParameters(['src' => $asset]);
 
-                $content = Site::current()->absoluteUrl() . $glideTag->generate()[0]['url'];
+                $content = Site::current()->absoluteUrl().$glideTag->generate()[0]['url'];
             }
 
             // Special handling for bard fields
