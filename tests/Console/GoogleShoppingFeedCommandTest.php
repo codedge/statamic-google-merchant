@@ -9,6 +9,6 @@ final class GoogleShoppingFeedCommandTest extends TestCase
     /** @test */
     public function it_can_run_command_successful_without_enabled()
     {
-        $this->artisan('google-merchant:feed:generate')->assertExitCode(0);
+        $this->artisan('google-merchant:feed:generate')->assertSuccessful();
     }
 }

@@ -28,5 +28,7 @@ final class GoogleShoppingFeed extends Command
 
             $this->info('Google Merchant Feed generated successfully.');
         }
+
+        return Command::SUCCESS;
     }
 }

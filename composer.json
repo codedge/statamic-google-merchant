@@ -44,8 +44,8 @@
             ]
         },
         "statamic": {
-            "description": "Login to Control Panel without using a password",
-            "name": "MagicLink"
+            "description": "Google Merchant Feed Generator",
+            "name": "GoogleMerchantFeed"
         }
     },
     "autoload": {
@@ -59,7 +59,7 @@
         }
     },
     "scripts": {
-        "test": "./vendor/bin/phpunit --debug --testdox",
+        "test": "./vendor/bin/phpunit --testdox",
         "test-clover-coverage": "./vendor/bin/phpunit --coverage-clover clover.xml",
         "test-coverage": "./vendor/bin/phpunit --coverage-html coverage"
     },

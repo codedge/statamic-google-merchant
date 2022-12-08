@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Codedge\GoogleMerchant\Tests;
 
+use Codedge\GoogleMerchant\Console\Commands\GoogleShoppingFeed;
 use Codedge\GoogleMerchant\ServiceProvider;
 use Illuminate\Foundation\Application;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
@@ -23,6 +24,10 @@ class TestCase extends OrchestraTestCase
      */
     protected function setUp(): void
     {
+        \Illuminate\Console\Application::starting(function ($artisan) {
+            $artisan->resolveCommands([GoogleShoppingFeed::class]);
+        });
+
         parent::setUp();
 
         if ($this->shouldFakeVersion) {
