@@ -14,7 +14,7 @@
         "laravel-mix": "^5.0.9",
         "laravel-mix-purgecss": "^5.0.0",
         "node-forge": ">=0.10.0",
-        "postcss-import": "^14.0.0",
+        "postcss-import": "^15.1.0",
         "postcss-nested": "^5.0.5",
         "postcss-preset-env": "^6.7.0",
         "vue-template-compiler": "^2.6.12"
