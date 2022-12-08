@@ -106,6 +106,10 @@ final class Feed
             // Special handling for image fields
             if (is_array($content) && str_contains($name, 'image')) {
                 $path = collect($content)->first()['image']['src'];
+                if(is_array($path) && count($path) === 1) {
+                    $path = $path[0];
+                }
+                
                 $asset = \Statamic\Facades\Asset::query()
                                                 ->where('container', 'product_images')
                                                 ->where('path', $path)
