@@ -23,7 +23,7 @@
         "ext-json": "*",
         "ext-simplexml": "*",
         "statamic/cms": "^3.2.4",
-        "vitalybaev/google-merchant-feed": "^2.5"
+        "vitalybaev/google-merchant-feed": "^2.6"
     },
     "require-dev": {
         "orchestra/testbench": "^6.25.1",
