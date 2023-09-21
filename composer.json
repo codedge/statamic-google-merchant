@@ -19,14 +19,14 @@
         }
     ],
     "require": {
-        "php": "^8.0",
+        "php": "^8.1",
         "ext-json": "*",
         "ext-simplexml": "*",
-        "statamic/cms": "^3.2.4",
+        "statamic/cms": "^4.0",
         "vitalybaev/google-merchant-feed": "^2.5"
     },
     "require-dev": {
-        "orchestra/testbench": "^6.25.1",
+        "orchestra/testbench": "^7.0 || ^8.0",
         "phpunit/phpunit": "^9.5",
         "spatie/ray": "^1.30"
     },
