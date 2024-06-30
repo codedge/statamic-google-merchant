@@ -95,10 +95,9 @@ final class ServiceProvider extends AddonServiceProvider
             $nav->create('Google Merchant')
                 ->icon('link')
                 ->section('Tools')
-                ->children([
-                    Nav::item(__('gm::cp.settings.settings'))->route('gm.index')
-                        ->can('view gm settings'),
-                ]);
+                ->route('gm.index')
+                ->can('view google merchant settings')
+            ;
         });
     }
 
