@@ -1,6 +1,6 @@
 <?php
 
-namespace Codedge\GoogleMerchant\Console\Tests;
+namespace Codedge\GoogleMerchant\Tests\Console;
 
 use Codedge\GoogleMerchant\Tests\TestCase;
 

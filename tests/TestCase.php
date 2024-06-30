@@ -6,6 +6,7 @@ namespace Codedge\GoogleMerchant\Tests;
 
 use Codedge\GoogleMerchant\Console\Commands\GoogleShoppingFeed;
 use Codedge\GoogleMerchant\ServiceProvider;
+use Facades\Statamic\Version;
 use Illuminate\Foundation\Application;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
 use Statamic\Extend\Manifest;
@@ -17,7 +18,7 @@ use Statamic\Statamic;
 
 class TestCase extends OrchestraTestCase
 {
-    protected $shouldFakeVersion = true;
+    protected bool $shouldFakeVersion = true;
 
     /**
      * Setup the test environment.
@@ -31,7 +32,7 @@ class TestCase extends OrchestraTestCase
         parent::setUp();
 
         if ($this->shouldFakeVersion) {
-            \Facades\Statamic\Version::shouldReceive('get')->andReturn('3.1');
+            Version::shouldReceive('get')->andReturn('3.1');
             $this->addToAssertionCount(-1); // Dont want to assert this
         }
     }
@@ -92,21 +93,13 @@ class TestCase extends OrchestraTestCase
      * @param  Application  $app
      * @return array
      */
-    protected function getPackageProviders($app)
-    {
+    protected function getPackageProviders($app): array {
         return [
-
             StatamicServiceProvider::class,
             ServiceProvider::class,
         ];
     }
 
-    /**
-     * Load package alias.
-     *
-     * @param  Application  $app
-     * @return array
-     */
     protected function getPackageAliases($app)
     {
         return [
@@ -114,12 +107,7 @@ class TestCase extends OrchestraTestCase
         ];
     }
 
-    /**
-     * Load Environment.
-     *
-     * @param  Application  $app
-     */
-    protected function getEnvironmentSetUp($app)
+    protected function getEnvironmentSetUp($app): void
     {
         parent::getEnvironmentSetUp($app);
 
@@ -142,7 +130,7 @@ class TestCase extends OrchestraTestCase
 
         $configs = [
             'assets', 'cp', 'forms', 'routes', 'static_caching',
-            'sites', 'stache', 'system', 'users',
+            'stache', 'system', 'users',
         ];
 
         foreach ($configs as $config) {

@@ -1,6 +1,8 @@
 <?php
 
-namespace Codedge\GoogleMerchant\Tests;
+namespace Codedge\GoogleMerchant\Tests\Http\Controllers;
+
+use Codedge\GoogleMerchant\Tests\TestCase;
 
 class SettingsControllerTest extends TestCase
 {
