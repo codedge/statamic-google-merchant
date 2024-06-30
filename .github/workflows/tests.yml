@@ -10,16 +10,13 @@ jobs:
                 php: ['8.3']
                 laravel: [10.*]
                 dependency-version: [prefer-stable]
-                include:
-                  - laravel: 8.*
-                    testbench: 6.*
         name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.dependency-version }}
         steps:
             - name: Checkout code
-              uses: actions/checkout@v3.1.0
+              uses: actions/checkout@v4.1.7
 
             - name: Setup PHP
-              uses: shivammathur/setup-php@2.22.0
+              uses: shivammathur/setup-php@2.31.0
               with:
                   php-version: ${{ matrix.php }}
                   extensions: mbstring, intl, json, zip
@@ -47,7 +44,7 @@ jobs:
               env:
                   APP_ENV: testing
 
-            - uses: codecov/codecov-action@v3.1.1
+            - uses: codecov/codecov-action@v4.5.0
               name: Push coverage to codecov
               with:
                 token: ${{ secrets.CODECOV_TOKEN }}
