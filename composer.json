@@ -28,7 +28,7 @@
     "require-dev": {
         "orchestra/testbench": "^9.1",
         "phpunit/phpunit": "^11.2",
-        "spatie/ray": "^1.30"
+        "spatie/ray": "^1.41"
     },
     "config": {
         "process-timeout": 0,
