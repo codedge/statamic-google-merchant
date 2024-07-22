@@ -22,7 +22,7 @@
         "php": "^8.3",
         "ext-json": "*",
         "ext-simplexml": "*",
-        "statamic/cms": "^5.0",
+        "statamic/cms": "^5.17",
         "vitalybaev/google-merchant-feed": "^2.5"
     },
     "require-dev": {
