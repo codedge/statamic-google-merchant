@@ -13,7 +13,7 @@ jobs:
         name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.dependency-version }}
         steps:
             - name: Checkout code
-              uses: actions/checkout@v4.1.7
+              uses: actions/checkout@v4.2.0
 
             - name: Setup PHP
               uses: shivammathur/setup-php@2.31.0
